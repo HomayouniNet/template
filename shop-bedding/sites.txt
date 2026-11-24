@@ -1,0 +1,17 @@
+# دموهای مرجع WoodMart + قالب‌های پروژه کالای خواب هاشمزاده
+# https://www.zhaket.com/web/woodmart-woocommerce-themes/demo
+
+# قالب ۱ — آماده
+# دمو: https://demo.shahr-woodmart.com/woodmart/sargol/
+# مسیر: sargol/index.html
+# اسکرین: 01.jpg
+
+# قالب ۲ — آماده
+# دمو: https://demo.shahr-woodmart.com/woodmart/wood/
+# مسیر: wood/index.html
+# اسکرین: 02.png
+
+# قالب ۳ — آماده
+# دمو: https://demo.shahr-woodmart.com/woodmart/majora/
+# مسیر: majora/index.html
+# اسکرین: 03.png

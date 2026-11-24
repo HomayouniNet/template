@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>کالای خواب هاشمزاده | ماژورا</title>
+  <link rel="stylesheet" href="../assets/css/fonts.css" />
+  <style>
+    :root {
+      --primary: #222;
+      --primary-soft: #333;
+      --beige: #faf8f2;
+      --beige-2: #f2eee9;
+      --text: #777;
+      --dark: #222;
+      --border: #eaeaea;
+      --green: #4caf50;
+      --sale: #222;
+      --container: 1220px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
+    body {
+      font-family: "Vazirmatn", Tahoma, sans-serif;
+      color: var(--text);
+      background: #fff;
+      font-size: 14px;
+      line-height: 1.7;
+      overflow-x: hidden;
+      max-width: 100%;
+    }
+    a { color: inherit; text-decoration: none; transition: .25s; }
+    img { max-width: 100%; height: auto; display: block; }
+    ul { list-style: none; }
+    button, input { font-family: inherit; border: 0; background: none; }
+    .wrap {
+      width: min(100% - 30px, var(--container));
+      margin-inline: auto;
+      max-width: 100%;
+    }
+
+    /* Topbar */
+    .topbar {
+      background: var(--primary);
+      color: rgba(255,255,255,.8);
+      font-size: 12px;
+    }
+    .topbar .wrap {
+      display: flex; align-items: center; justify-content: space-between;
+      min-height: 38px; gap: 12px;
+    }
+    .topbar a:hover { color: #fff; }
+    .topbar-links { display: flex; gap: 14px; flex-wrap: wrap; }
+    .topbar-social { display: flex; gap: 12px; }
+    .topbar-social svg { width: 13px; height: 13px; fill: currentColor; display: block; }
+
+    /* Header */
+    .header { background: #fff; border-bottom: 1px solid var(--border); }
+    .header-main {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 16px;
+      min-height: 88px;
+      padding: 12px 0;
+    }
+    .search {
+      display: flex; align-items: center;
+      background: #f5f5f5;
+      border-radius: 30px;
+      height: 44px;
+      max-width: 320px;
+      width: 100%;
+      padding: 0 6px 0 14px;
+      justify-self: start;
+    }
+    .search input {
+      flex: 1; outline: 0; background: transparent; font-size: 13px; min-width: 0;
+    }
+    .search button {
+      width: 34px; height: 34px; border-radius: 50%;
+      display: grid; place-items: center; cursor: pointer; color: #555;
+    }
+    .search button svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+    .brand {
+      text-align: center;
+      font-size: clamp(26px, 3vw, 34px);
+      font-weight: 800;
+      letter-spacing: .08em;
+      color: var(--dark);
+      line-height: 1.1;
+    }
+    .brand small {
+      display: block;
+      font-size: 11px;
+      letter-spacing: .2em;
+      font-weight: 600;
+      color: #999;
+      margin-top: 4px;
+    }
+
+    .tools {
+      display: flex; align-items: center; gap: 8px; justify-self: end;
+    }
+    .login {
+      display: inline-flex; align-items: center; gap: 7px;
+      height: 40px; padding: 0 14px; border: 1px solid var(--border);
+      border-radius: 30px; font-size: 13px; font-weight: 600; color: var(--dark);
+    }
+    .login:hover { border-color: var(--dark); }
+    .login svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.7; }
+    .icon {
+      position: relative; width: 40px; height: 40px;
+      display: grid; place-items: center; color: var(--dark);
+    }
+    .icon svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.6; }
+    .icon .n {
+      position: absolute; top: 0; left: 0;
+      min-width: 16px; height: 16px; border-radius: 50%;
+      background: var(--dark); color: #fff; font-size: 10px; font-weight: 800;
+      display: grid; place-items: center;
+    }
+    .burger {
+      display: none; width: 40px; height: 40px; border: 1px solid var(--border);
+      border-radius: 6px; flex-direction: column; align-items: center; justify-content: center; gap: 4px; cursor: pointer;
+    }
+    .burger i { width: 16px; height: 2px; background: #222; }
+
+    /* Nav */
+    .navrow { border-bottom: 1px solid var(--border); }
+    .navrow .wrap {
+      display: flex; align-items: center; justify-content: center;
+      gap: 18px; min-height: 52px; position: relative;
+    }
+    .cats {
+      position: absolute; right: 0;
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 13px; font-weight: 700; color: var(--dark);
+    }
+    .menu { display: flex; align-items: center; gap: 4px; }
+    .menu a {
+      padding: 8px 12px; font-size: 13px; font-weight: 600; color: #444; border-radius: 4px;
+      position: relative;
+    }
+    .menu a:hover, .menu a.active { color: var(--dark); }
+    .badge-green {
+      display: inline-block; background: var(--green); color: #fff;
+      font-size: 10px; font-weight: 800; padding: 1px 6px; border-radius: 3px;
+      margin-inline-start: 4px; vertical-align: middle;
+    }
+    .mob-nav { display: none !important; border-top: 1px solid var(--border); padding: 8px 0 12px; }
+    .mob-nav.open { display: block !important; }
+    .mob-nav a {
+      display: block; padding: 10px 0; border-bottom: 1px solid #f5f5f5;
+      font-weight: 600; color: #333;
+    }
+
+    /* Hero */
+    .hero {
+      background: var(--beige);
+      overflow: hidden;
+    }
+    .hero-slide {
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      min-height: 460px;
+      align-items: stretch;
+      max-width: var(--container);
+      margin-inline: auto;
+      position: relative;
+    }
+    .hero-copy {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 48px 40px;
+      min-width: 0;
+    }
+    .hero-copy .eyebrow {
+      font-size: 13px; color: #888; margin-bottom: 10px; font-weight: 500;
+    }
+    .hero-copy h1 {
+      font-size: clamp(28px, 3.6vw, 44px);
+      font-weight: 800; color: var(--dark); line-height: 1.35; margin-bottom: 10px;
+    }
+    .hero-copy p { font-size: 15px; color: #666; margin-bottom: 22px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      height: 44px; padding: 0 26px; font-size: 13px; font-weight: 800; cursor: pointer;
+    }
+    .btn-dark { background: var(--dark); color: #fff; }
+    .btn-dark:hover { background: #000; }
+    .btn-link {
+      font-weight: 800; color: var(--dark); border-bottom: 1px solid var(--dark);
+      padding-bottom: 2px; font-size: 13px;
+    }
+    .hero-media { min-width: 0; position: relative; overflow: hidden; }
+    .hero-media img {
+      width: 100%; height: 100%; min-height: 460px; object-fit: cover;
+    }
+    .hero-dots {
+      position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 7px; z-index: 2;
+    }
+    .hero-dots span {
+      width: 8px; height: 8px; border-radius: 50%; background: rgba(0,0,0,.2);
+    }
+    .hero-dots span.on { background: var(--dark); }
+
+    /* Categories */
+    .section { padding: 48px 0; }
+    .section-head { text-align: center; margin-bottom: 28px; }
+    .section-head h2 { font-size: 24px; font-weight: 800; color: var(--dark); margin-bottom: 6px; }
+    .section-head p { font-size: 13px; color: #999; }
+
+    .cats-row {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 14px;
+      text-align: center;
+    }
+    .cat {
+      display: flex; flex-direction: column; align-items: center; gap: 10px; min-width: 0;
+    }
+    .cat-circle {
+      width: min(100%, 110px); aspect-ratio: 1; border-radius: 50%;
+      overflow: hidden; background: #f3f3f3; border: 1px solid #eee;
+      transition: transform .3s;
+    }
+    .cat:hover .cat-circle { transform: translateY(-4px); }
+    .cat-circle img { width: 100%; height: 100%; object-fit: cover; }
+    .cat h3 { font-size: 13px; font-weight: 700; color: var(--dark); }
+    .cat span { font-size: 11px; color: #aaa; }
+
+    /* Features */
+    .features {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 22px 0;
+    }
+    .features-grid {
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0;
+    }
+    .feat {
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      padding: 8px 16px; text-align: right;
+    }
+    .feat:not(:last-child) { border-left: 1px solid var(--border); }
+    .feat .ic {
+      width: 42px; height: 42px; border-radius: 50%; background: var(--beige);
+      display: grid; place-items: center; color: var(--dark); flex-shrink: 0;
+    }
+    .feat .ic svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.6; }
+    .feat strong { display: block; font-size: 13px; color: var(--dark); font-weight: 800; }
+    .feat span { font-size: 12px; color: #999; }
+
+    /* Products */
+    .tabs-row {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; margin-bottom: 22px; flex-wrap: wrap;
+    }
+    .tabs-row h2 { font-size: 22px; font-weight: 800; color: var(--dark); }
+    .tabs { display: flex; gap: 4px; flex-wrap: wrap; }
+    .tabs button {
+      padding: 7px 14px; font-size: 12px; font-weight: 700; color: #777;
+      border: 1px solid transparent; cursor: pointer; border-radius: 2px;
+    }
+    .tabs button.active, .tabs button:hover {
+      color: var(--dark); border-color: var(--border); background: #fafafa;
+    }
+    .pgrid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .pcard {
+      min-width: 0; background: #fff;
+    }
+    .pcard-img {
+      position: relative; aspect-ratio: 3/4; background: #f5f5f5; overflow: hidden;
+      margin-bottom: 12px;
+    }
+    .pcard-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .45s; }
+    .pcard:hover .pcard-img img { transform: scale(1.04); }
+    .tag {
+      position: absolute; top: 10px; right: 10px;
+      font-size: 10px; font-weight: 800; padding: 3px 8px; color: #fff;
+    }
+    .tag-new { background: var(--green); }
+    .tag-sale { background: var(--dark); }
+    .wish {
+      position: absolute; top: 10px; left: 10px;
+      width: 30px; height: 30px; border-radius: 50%; background: #fff;
+      display: grid; place-items: center; color: #aaa; cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08); opacity: 0; transition: .25s;
+    }
+    .pcard:hover .wish { opacity: 1; }
+    .wish:hover { color: #e53935; }
+    .wish svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+    .pcard h3 {
+      font-size: 13px; font-weight: 700; color: var(--dark); line-height: 1.5;
+      margin-bottom: 4px;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .pcard .cat-name { font-size: 11px; color: #aaa; margin-bottom: 6px; }
+    .price { font-size: 14px; font-weight: 800; color: var(--dark); }
+    .price s { color: #bbb; font-weight: 500; font-size: 12px; margin-inline-start: 6px; }
+
+    /* Dual banners */
+    .dual {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+      padding: 10px 0 40px;
+    }
+    .dbanner {
+      position: relative; overflow: hidden; min-height: 280px;
+      background: var(--beige-2); min-width: 0;
+    }
+    .dbanner img {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    }
+    .dbanner .cap {
+      position: relative; z-index: 1; padding: 28px;
+      max-width: 55%;
+      background: linear-gradient(90deg, rgba(250,248,242,.92), rgba(250,248,242,.35) 70%, transparent);
+      min-height: 280px; display: flex; flex-direction: column; justify-content: center;
+    }
+    .dbanner h3 { font-size: 20px; font-weight: 800; color: var(--dark); margin-bottom: 10px; line-height: 1.4; }
+
+    /* Story */
+    .story {
+      display: grid; grid-template-columns: 1fr 1.1fr; gap: 0;
+      background: var(--beige);
+      min-height: 420px;
+      overflow: hidden;
+    }
+    .story-copy {
+      padding: 48px 40px; display: flex; flex-direction: column; justify-content: center; min-width: 0;
+    }
+    .story-copy h2 {
+      font-size: clamp(22px, 2.6vw, 30px); font-weight: 800; color: var(--dark);
+      line-height: 1.45; margin-bottom: 12px;
+    }
+    .story-copy .lead { font-size: 14px; color: #888; margin-bottom: 10px; font-weight: 600; }
+    .story-copy p { font-size: 13px; line-height: 2; margin-bottom: 22px; max-width: 460px; }
+    .story-media { min-width: 0; }
+    .story-media img { width: 100%; height: 100%; min-height: 420px; object-fit: cover; }
+
+    /* Blog */
+    .blog {
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px;
+    }
+    .bcard {
+      position: relative; overflow: hidden; min-height: 280px; background: #333;
+    }
+    .bcard img {
+      width: 100%; height: 100%; object-fit: cover; min-height: 280px;
+      transition: transform .5s; opacity: .9;
+    }
+    .bcard:hover img { transform: scale(1.05); }
+    .bcard .meta {
+      position: absolute; top: 14px; right: 14px;
+      background: rgba(255,255,255,.92); padding: 6px 10px; font-size: 11px; font-weight: 700; color: var(--dark);
+    }
+    .bcard .title {
+      position: absolute; inset-inline: 0; bottom: 0;
+      padding: 18px 16px;
+      background: linear-gradient(transparent, rgba(0,0,0,.7));
+      color: #fff; font-size: 15px; font-weight: 800; line-height: 1.5;
+    }
+
+    /* Brands */
+    .brands {
+      display: grid; grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 12px; align-items: center; text-align: center;
+      padding: 10px 0 20px; opacity: .45;
+    }
+    .brands span {
+      font-size: 16px; font-weight: 800; letter-spacing: .06em; color: #666;
+      padding: 16px 8px; border: 1px solid #eee;
+    }
+
+    /* Footer */
+    .footer { border-top: 1px solid var(--border); padding: 42px 0 0; background: #fff; }
+    .footer-grid {
+      display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 28px; padding-bottom: 32px;
+    }
+    .footer h4 { font-size: 14px; font-weight: 800; color: var(--dark); margin-bottom: 14px; }
+    .footer p { font-size: 13px; line-height: 1.9; margin-bottom: 14px; max-width: 280px; }
+    .footer li { margin-bottom: 8px; }
+    .footer a { font-size: 13px; color: #777; }
+    .footer a:hover { color: var(--dark); }
+    .trust {
+      width: 70px; height: 70px; border: 1px solid var(--border); border-radius: 8px;
+      display: grid; place-items: center; font-size: 10px; text-align: center; color: #999; line-height: 1.25;
+    }
+    .footer-bottom {
+      border-top: 1px solid var(--border); padding: 14px 0; font-size: 12px; color: #999;
+    }
+
+    .to-top {
+      position: fixed; bottom: 16px; inset-inline-start: 16px; z-index: 40;
+      width: 40px; height: 40px; background: var(--dark); color: #fff;
+      display: grid; place-items: center; cursor: pointer;
+      opacity: 0; pointer-events: none; transition: .25s;
+    }
+    .to-top.show { opacity: 1; pointer-events: auto; }
+    .to-top svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+    @media (max-width: 1100px) {
+      .cats { display: none; }
+      .menu { display: none; }
+      .burger { display: flex; }
+      .cats-row { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .pgrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .brands { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .wrap { width: min(100% - 24px, var(--container)); }
+      .topbar-links { display: none; }
+      .header-main {
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        gap: 8px; min-height: 70px;
+      }
+      .search { display: none; }
+      .brand { font-size: 22px; }
+      .login span { display: none; }
+      .login { width: 40px; padding: 0; justify-content: center; }
+      .hero-slide { grid-template-columns: 1fr; min-height: 0; }
+      .hero-copy { padding: 36px 24px; order: 2; text-align: center; align-items: center; }
+      .hero-media { order: 1; }
+      .hero-media img { min-height: 300px; }
+      .story-copy { order: 2; }
+      .story-media { order: 1; }
+      .cats-row { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+      .features-grid { grid-template-columns: 1fr; gap: 14px; }
+      .feat:not(:last-child) { border-left: 0; border-bottom: 1px solid var(--border); padding-bottom: 14px; }
+      .feat { justify-content: flex-start; }
+      .pgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+      .wish { opacity: 1; }
+      .dual { grid-template-columns: 1fr; }
+      .dbanner .cap { max-width: 75%; min-height: 220px; }
+      .story { grid-template-columns: 1fr; }
+      .story-copy { padding: 32px 24px; text-align: center; align-items: center; }
+      .story-copy p { max-width: none; }
+      .story-media img { min-height: 260px; }
+      .blog { grid-template-columns: 1fr; }
+      .brands { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .footer-grid { grid-template-columns: 1fr; }
+      .tabs-row { flex-direction: column; align-items: stretch; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="wrap">
+      <div class="topbar-links">
+        <a href="#">بلاگ</a>
+        <a href="#">پرداخت</a>
+        <a href="#">سبد خرید</a>
+        <a href="#">مقایسه</a>
+      </div>
+      <div class="topbar-social">
+        <a href="#" aria-label="pinterest"><svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12c0 5.1 3.2 9.4 7.6 11.1-.1-.9-.2-2.4 0-3.4.2-.9 1.4-5.8 1.4-5.8s-.4-.7-.4-1.8c0-1.7 1-2.9 2.2-2.9 1 0 1.5.8 1.5 1.7 0 1-.7 2.6-1 4-.3 1.2.6 2.2 1.8 2.2 2.1 0 3.8-2.3 3.8-5.5 0-2.9-2.1-4.9-5-4.9-3.4 0-5.4 2.5-5.4 5.2 0 1 .4 2.1.9 2.7l-.3 1.3c0 .2-.2.3-.4.2-1.5-.7-2.4-2.9-2.4-4.7 0-3.8 2.8-7.3 8-7.3 4.2 0 7.5 3 7.5 7 0 4.2-2.6 7.5-6.3 7.5-1.2 0-2.4-.6-2.8-1.4l-.8 2.9c-.3 1.1-1 2.4-1.5 3.2 1.1.3 2.3.5 3.5.5 6.6 0 12-5.4 12-12S18.6 0 12 0z"/></svg></a>
+        <a href="#" aria-label="youtube"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2 31 31 0 000 12a31 31 0 00.5 5.8 3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1A31 31 0 0024 12a31 31 0 00-.5-5.8zM9.8 15.5v-7l6.3 3.5-6.3 3.5z"/></svg></a>
+        <a href="#" aria-label="instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.9.2 2.3.4.6.2 1 .5 1.5 1s.8.9 1 1.5c.2.4.3 1.1.4 2.3.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.9-.4 2.3-.2.6-.5 1-1 1.5s-.9.8-1.5 1c-.4.2-1.1.3-2.3.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.9-.2-2.3-.4-.6-.2-1-.5-1.5-1s-.8-.9-1-1.5c-.2-.4-.3-1.1-.4-2.3C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.9.4-2.3.2-.6.5-1 1-1.5s.9-.8 1.5-1c.4-.2 1.1-.3 2.3-.4C8.4 2.2 8.8 2.2 12 2.2m0 5.6A4.2 4.2 0 1016.2 12 4.2 4.2 0 0012 7.8zm6.4-2.7a1 1 0 11-1 1 1 1 0 011-1z"/></svg></a>
+        <a href="#" aria-label="x"><svg viewBox="0 0 24 24"><path d="M18.2 2H21l-6.7 7.6L22.5 22h-6.6l-5.2-6.8L5 22H2.2l7.1-8.2L1.5 2H8.3l4.7 6.2L18.2 2z"/></svg></a>
+        <a href="#" aria-label="facebook"><svg viewBox="0 0 24 24"><path d="M14 13.5h2.5l1-4H14v-2c0-1 0-2 2-2h1.5V2.14C17.17 2.1 15.9 2 14.5 2 11.6 2 9.5 3.8 9.5 7.3V9.5H7v4h2.5V22h4.5v-8.5z"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="wrap header-main">
+      <form class="search" action="#" role="search">
+        <input type="search" placeholder="جستجوی محصولات" required />
+        <button type="submit" aria-label="جستجو"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg></button>
+      </form>
+
+      <a href="#" class="brand">HASHEM<span style="font-weight:500">ZADEH</span><small>کالای خواب</small></a>
+
+      <div class="tools">
+        <a href="#" class="login"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM4 21a8 8 0 0116 0"/></svg><span>ورود / ثبت نام</span></a>
+        <a href="#" class="icon" aria-label="علاقه‌مندی"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg><span class="n">۰</span></a>
+        <a href="#" class="icon" aria-label="سبد"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 7h12l-1 12H7L6 7zm3-3h6l1 3H8l1-3z"/></svg><span class="n">۰</span></a>
+        <button class="burger" id="burger" type="button" aria-label="منو"><i></i><i></i><i></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Nav -->
+  <div class="navrow">
+    <div class="wrap">
+      <a href="#shop" class="cats">☰ دسته بندی‌های محصولات</a>
+      <nav class="menu">
+        <a href="#" class="active">صفحه اصلی</a>
+        <a href="#shop">فروشگاه</a>
+        <a href="#blog">بلاگ</a>
+        <a href="#about">درباره ما <span class="badge-green">ویژه</span></a>
+      </nav>
+    </div>
+    <div class="wrap mob-nav" id="mobNav">
+      <a href="#">صفحه اصلی</a>
+      <a href="#shop">فروشگاه</a>
+      <a href="#blog">بلاگ</a>
+      <a href="#about">درباره ما</a>
+      <a href="#contact">تماس با ما</a>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-slide">
+      <!-- RTL: first col = right → تصویر سمت راست مثل دمو -->
+      <div class="hero-media">
+        <img src="images/hero-person.jpg" alt="کالای خواب هاشمزاده" />
+      </div>
+      <div class="hero-copy">
+        <div class="eyebrow">Hashemzadeh collections</div>
+        <h1>تجربه‌ای فراتر از آرامش</h1>
+        <p>مجموعه کالای خواب هاشمزاده</p>
+        <a href="#shop" class="btn btn-dark">خرید کنید</a>
+      </div>
+      <div class="hero-dots" aria-hidden="true"><span class="on"></span><span></span></div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>محبوب‌ترین دسته‌بندی‌ها</h2>
+        <p>از محبوب‌ترین دسته‌های فروشگاه ما حتماً دیدن کنید</p>
+      </div>
+      <div class="cats-row">
+        <a href="#shop" class="cat"><div class="cat-circle"><img src="images/mattress.jpg" alt="" /></div><h3>تشک</h3><span>۱۲ محصول</span></a>
+        <a href="#shop" class="cat"><div class="cat-circle"><img src="images/pillow.jpg" alt="" /></div><h3>بالش</h3><span>۸ محصول</span></a>
+        <a href="#shop" class="cat"><div class="cat-circle"><img src="images/duvet.jpg" alt="" /></div><h3>روتختی</h3><span>۱۵ محصول</span></a>
+        <a href="#shop" class="cat"><div class="cat-circle"><img src="images/blanket.jpg" alt="" /></div><h3>پتو</h3><span>۹ محصول</span></a>
+        <a href="#shop" class="cat"><div class="cat-circle"><img src="images/sheet.jpg" alt="" /></div><h3>ملحفه</h3><span>۷ محصول</span></a>
+        <a href="#shop" class="cat"><div class="cat-circle"><img src="images/bed-set.jpg" alt="" /></div><h3>ست خواب</h3><span>۶ محصول</span></a>
+        <a href="#shop" class="cat"><div class="cat-circle"><img src="images/hero-bed.jpg" alt="" /></div><h3>لحاف</h3><span>۵ محصول</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <div class="features">
+    <div class="wrap features-grid">
+      <div class="feat">
+        <div class="ic"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div><strong>ضمانت اصالت کالا</strong><span>خرید مطمئن از هاشمزاده</span></div>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7h13l3 5v5H3V7zm13 0v5h4M7 19a1 1 0 100-2 1 1 0 000 2zm10 0a1 1 0 100-2 1 1 0 000 2z"/></svg></div>
+        <div><strong>ارسال رایگان</strong><span>برای سفارش‌های بالای ۴۵۰ هزار تومان</span></div>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2.2a1 1 0 01.95.68l1.05 3.15a1 1 0 01-.27 1.06L7.7 9.3a12 12 0 005 5l1.4-1.23a1 1 0 011.06-.27l3.15 1.05a1 1 0 01.69.95V19a2 2 0 01-2 2h-1C9.16 21 3 14.84 3 7V5z"/></svg></div>
+        <div><strong>پشتیبانی ۲۴ ساعته</strong><span>همیشه پاسخگوی شما هستیم</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Special products -->
+  <section class="section" id="shop">
+    <div class="wrap">
+      <div class="tabs-row">
+        <h2>محصولات فروش ویژه</h2>
+        <div class="tabs" id="tabs1">
+          <button type="button" class="active" data-f="all">همه</button>
+          <button type="button" data-f="mattress">تشک</button>
+          <button type="button" data-f="textile">منسوجات</button>
+          <button type="button" data-f="pillow">بالش</button>
+        </div>
+      </div>
+      <div class="pgrid" id="grid1">
+        <article class="pcard" data-f="pillow">
+          <div class="pcard-img"><span class="tag tag-new">جدید</span><button class="wish" type="button" aria-label="علاقه‌مندی"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></button><img src="images/pillow.jpg" alt="" /></div>
+          <h3>بالش طبی مموری فوم</h3><div class="cat-name">بالش</div><div class="price">۱٬۲۹۰٬۰۰۰ تومان</div>
+        </article>
+        <article class="pcard" data-f="textile">
+          <div class="pcard-img"><span class="tag tag-sale">حراج</span><button class="wish" type="button" aria-label="علاقه‌مندی"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></button><img src="images/hero-bed.jpg" alt="" /></div>
+          <h3>روتختی مخمل دو نفره</h3><div class="cat-name">روتختی</div><div class="price">۲٬۸۵۰٬۰۰۰ تومان <s>۳٬۸۰۰٬۰۰۰</s></div>
+        </article>
+        <article class="pcard" data-f="mattress">
+          <div class="pcard-img"><span class="tag tag-new">جدید</span><button class="wish" type="button" aria-label="علاقه‌مندی"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></button><img src="images/mattress.jpg" alt="" /></div>
+          <h3>تشک فنری طبی ۱۸۰×۲۰۰</h3><div class="cat-name">تشک</div><div class="price">۸٬۹۰۰٬۰۰۰ تومان</div>
+        </article>
+        <article class="pcard" data-f="textile">
+          <div class="pcard-img"><button class="wish" type="button" aria-label="علاقه‌مندی"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></button><img src="images/blanket.jpg" alt="" /></div>
+          <h3>پتو سبک زمستانی</h3><div class="cat-name">پتو</div><div class="price">۹۸۰٬۰۰۰ تومان</div>
+        </article>
+        <article class="pcard" data-f="textile">
+          <div class="pcard-img"><span class="tag tag-sale">حراج</span><button class="wish" type="button" aria-label="علاقه‌مندی"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></button><img src="images/sheet.jpg" alt="" /></div>
+          <h3>ست ملحفه کتان طبیعی</h3><div class="cat-name">ملحفه</div><div class="price">۱٬۸۹۰٬۰۰۰ تومان <s>۲٬۱۵۰٬۰۰۰</s></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dual banners -->
+  <div class="wrap dual">
+    <a href="#shop" class="dbanner">
+      <img src="images/banner-women.jpg" alt="" />
+      <div class="cap">
+        <h3>روتختی‌های کلاسیک مخمل</h3>
+        <span class="btn-link">خرید کنید</span>
+      </div>
+    </a>
+    <a href="#shop" class="dbanner">
+      <img src="images/banner-men.jpg" alt="" />
+      <div class="cap">
+        <h3>تشک‌های طبی استاندارد</h3>
+        <span class="btn-link">خرید کنید</span>
+      </div>
+    </a>
+  </div>
+
+  <!-- Best sellers -->
+  <section class="section" style="padding-top:10px">
+    <div class="wrap">
+      <div class="tabs-row">
+        <h2>پرفروش‌ترین محصولات</h2>
+      </div>
+      <div class="pgrid">
+        <article class="pcard"><div class="pcard-img"><button class="wish" type="button" aria-label="علاقه‌مندی"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></button><img src="images/bed-set.jpg" alt="" /></div><h3>ست خواب کامل عروس</h3><div class="cat-name">ست خواب</div><div class="price">۱۲٬۵۰۰٬۰۰۰ تومان</div></article>
+        <article class="pcard"><div class="pcard-img"><span class="tag tag-new">جدید</span><button class="wish" type="button" aria-label="علاقه‌مندی"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></button><img src="images/duvet.jpg" alt="" /></div><h3>لحاف سبک چهارفصل</h3><div class="cat-name">لحاف</div><div class="price">۱٬۷۵۰٬۰۰۰ تومان</div></article>
+        <article class="pcard"><div class="pcard-img"><button class="wish" type="button" aria-label="علاقه‌مندی"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></button><img src="images/pillow.jpg" alt="" /></div><h3>بالش پر قو جفتی</h3><div class="cat-name">بالش</div><div class="price">۲٬۰۶۴٬۰۰۰ تومان</div></article>
+        <article class="pcard"><div class="pcard-img"><span class="tag tag-sale">حراج</span><button class="wish" type="button" aria-label="علاقه‌مندی"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></button><img src="images/blanket.jpg" alt="" /></div><h3>پتو مسافرتی نرم</h3><div class="cat-name">پتو</div><div class="price">۶۳۷٬۰۰۰ تومان <s>۸۵۰٬۰۰۰</s></div></article>
+        <article class="pcard"><div class="pcard-img"><button class="wish" type="button" aria-label="علاقه‌مندی"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></button><img src="images/mattress.jpg" alt="" /></div><h3>تشک طبی هاشمزاده</h3><div class="cat-name">تشک</div><div class="price">۷٬۸۰۰٬۰۰۰ تومان</div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story -->
+  <section class="story" id="about">
+    <div class="story-copy">
+      <h2>الهام‌بخش خانه‌های ایرانی برای ساختن خوابی آرام‌تر</h2>
+      <div class="lead">کیفیت را به اتاق خواب بیاورید</div>
+      <p>
+        کالای خواب هاشمزاده با تمرکز بر راحتی، دوام و طراحی مینیمال،
+        مجموعه‌ای از تشک، بالش و منسوجات خواب را برای سبک زندگی امروزی فراهم می‌کند.
+      </p>
+      <a href="#shop" class="btn btn-dark">بیشتر بدانید</a>
+    </div>
+    <div class="story-media">
+      <img src="images/story.jpg" alt="اتاق خواب هاشمزاده" />
+    </div>
+  </section>
+
+  <!-- Blog -->
+  <section class="section" id="blog">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>از مجله بلاگ ما بخوانید</h2>
+        <p>از محبوب‌ترین مطالب مجله خواب حتماً دیدن کنید</p>
+      </div>
+      <div class="blog">
+        <a href="#" class="bcard">
+          <img src="images/blog1.jpg" alt="" />
+          <div class="meta">۱۲ مهر · ۰ نظر</div>
+          <div class="title">چطور تشک مناسب خود را انتخاب کنیم؟</div>
+        </a>
+        <a href="#" class="bcard">
+          <img src="images/blog2.jpg" alt="" />
+          <div class="meta">۵ مهر · ۰ نظر</div>
+          <div class="title">فواید بالش طبی برای گردن و شانه</div>
+        </a>
+        <a href="#" class="bcard">
+          <img src="images/blog3.jpg" alt="" />
+          <div class="meta">۲۸ شهریور · ۱ نظر</div>
+          <div class="title">نکات شستشو و نگهداری روتختی</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brands -->
+  <div class="wrap">
+    <div class="brands" aria-label="برندها">
+      <span>COMFORT</span>
+      <span>SLEEP</span>
+      <span>SOFT</span>
+      <span>REST</span>
+      <span>COTTON</span>
+      <span>DREAM</span>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer" id="contact">
+    <div class="wrap footer-grid">
+      <div>
+        <h4>درباره هاشمزاده</h4>
+        <p>تخصصی‌ترین فروشگاه کالای خواب با تمرکز بر کیفیت، راحتی و طراحی ماندگار برای خانه ایرانی.</p>
+        <div class="trust">نماد<br/>اعتماد</div>
+      </div>
+      <div>
+        <h4>لینک‌های مفید</h4>
+        <ul>
+          <li><a href="#">خدمات مشتریان</a></li>
+          <li><a href="#">حریم خصوصی</a></li>
+          <li><a href="#">قوانین و مقررات</a></li>
+          <li><a href="#">تماس با ما</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>راهنمای خرید</h4>
+        <ul>
+          <li><a href="#">نحوه ثبت سفارش</a></li>
+          <li><a href="#">روش‌های ارسال</a></li>
+          <li><a href="#">پیگیری مرسوله</a></li>
+          <li><a href="#">شرایط مرجوعی</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>دسته‌بندی محصولات</h4>
+        <ul>
+          <li><a href="#shop">تشک</a></li>
+          <li><a href="#shop">بالش</a></li>
+          <li><a href="#shop">روتختی</a></li>
+          <li><a href="#shop">پتو و لحاف</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="wrap">© ۱۴۰۵ کالای خواب هاشمزاده — تمامی حقوق محفوظ است.</div>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" type="button" aria-label="بالا"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg></button>
+
+  <script>
+    document.getElementById('burger')?.addEventListener('click', () => {
+      document.getElementById('mobNav').classList.toggle('open');
+    });
+
+    document.querySelectorAll('#tabs1 button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#tabs1 button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.dataset.f;
+        document.querySelectorAll('#grid1 .pcard').forEach(c => {
+          c.style.display = (f === 'all' || c.dataset.f === f) ? '' : 'none';
+        });
+      });
+    });
+
+    const toTop = document.getElementById('toTop');
+    window.addEventListener('scroll', () => toTop.classList.toggle('show', scrollY > 400));
+    toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+</body>
+</html>

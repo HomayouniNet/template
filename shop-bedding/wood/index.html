@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>کالای خواب هاشمزاده</title>
+  <link rel="stylesheet" href="../assets/css/fonts.css" />
+  <style>
+    :root {
+      --primary: #d60644;
+      --primary-hover: #b8053a;
+      --sale-red: #ef394e;
+      --sale-green: #23a455;
+      --text: #777;
+      --dark: #333;
+      --border: #ebebeb;
+      --container: 1350px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      max-width: 100%;
+    }
+    body {
+      font-family: "Vazirmatn", Tahoma, sans-serif;
+      color: var(--text);
+      background: #fff;
+      font-size: 14px;
+      line-height: 1.6;
+      overflow-x: hidden;
+      max-width: 100%;
+      position: relative;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+    svg { display: block; max-width: 100%; }
+    ul { list-style: none; }
+    button, input, select { font-family: inherit; border: 0; background: none; }
+    .wrap {
+      width: min(100% - 30px, var(--container));
+      margin-inline: auto;
+      max-width: 100%;
+    }
+
+    /* ========== TOP BAR ========== */
+    .topbar {
+      border-bottom: 1px solid var(--border);
+      font-size: 12px;
+      color: #999;
+    }
+    .topbar .wrap {
+      display: flex; align-items: center; justify-content: space-between;
+      min-height: 40px; gap: 12px;
+    }
+    .topbar-links { display: flex; gap: 16px; flex-wrap: wrap; }
+    .topbar-links a:hover { color: var(--primary); }
+    .topbar-social { display: flex; gap: 14px; }
+    .topbar-social a { color: #aaa; }
+    .topbar-social a:hover { color: var(--primary); }
+    .topbar-social svg { width: 14px; height: 14px; fill: currentColor; }
+
+    /* ========== HEADER ========== */
+    .header { border-bottom: 1px solid var(--border); background: #fff; }
+    .header-row {
+      display: grid;
+      grid-template-columns: 200px 1fr auto;
+      align-items: center;
+      gap: 24px;
+      min-height: 90px;
+      padding: 12px 0;
+    }
+    .logo {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .logo-mark {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--primary); color: #fff;
+      display: grid; place-items: center;
+      box-shadow: 0 6px 14px rgba(214,6,68,.28);
+      flex-shrink: 0;
+    }
+    .logo-text strong {
+      display: block; font-size: 18px; font-weight: 800; color: var(--primary); line-height: 1.2;
+    }
+    .logo-text span { font-size: 11px; color: #999; }
+
+    .search {
+      display: flex; align-items: stretch;
+      height: 46px;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      overflow: hidden;
+      max-width: 640px;
+      margin-inline: auto;
+      width: 100%;
+    }
+    .search input {
+      flex: 1; padding: 0 18px; outline: 0; font-size: 13px; min-width: 0;
+    }
+    .search select {
+      border-right: 1px solid var(--border);
+      padding: 0 10px; font-size: 12px; color: #666; max-width: 150px;
+      background: #fafafa; outline: 0;
+    }
+    .search button {
+      width: 46px; background: var(--primary); color: #fff;
+      display: grid; place-items: center; cursor: pointer; flex-shrink: 0;
+    }
+    .search button:hover { background: var(--primary-hover); }
+    .search button svg { width: 18px; height: 18px; stroke: #fff; fill: none; stroke-width: 2; }
+
+    .tools { display: flex; align-items: center; gap: 8px; }
+    .tools .login {
+      display: inline-flex; align-items: center; gap: 7px;
+      height: 40px; padding: 0 14px; border: 1px solid var(--border);
+      border-radius: 30px; font-size: 13px; font-weight: 600; color: var(--dark);
+    }
+    .tools .login:hover { border-color: var(--primary); color: var(--primary); }
+    .tools .login svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.7; }
+    .icon-btn {
+      position: relative; width: 40px; height: 40px;
+      display: grid; place-items: center; color: #555;
+    }
+    .icon-btn svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.6; }
+    .icon-btn .n {
+      position: absolute; top: 0; left: 0;
+      min-width: 16px; height: 16px; border-radius: 50%;
+      background: var(--primary); color: #fff; font-size: 10px; font-weight: 800;
+      display: grid; place-items: center;
+    }
+    .cart-round {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--primary); color: #fff; display: grid; place-items: center; position: relative;
+    }
+    .cart-round svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.7; }
+    .cart-round .n {
+      position: absolute; top: -4px; left: -4px;
+      background: #fff; color: var(--primary); border: 2px solid var(--primary);
+      min-width: 18px; height: 18px; border-radius: 50%; font-size: 10px; font-weight: 800;
+      display: grid; place-items: center;
+    }
+    .burger {
+      display: none; width: 40px; height: 40px; border: 1px solid var(--border);
+      border-radius: 6px; flex-direction: column; align-items: center; justify-content: center; gap: 4px; cursor: pointer;
+    }
+    .burger i { width: 16px; height: 2px; background: #333; }
+
+    /* ========== NAV ========== */
+    .navrow { border-bottom: 1px solid var(--border); }
+    .navrow .wrap {
+      display: flex; align-items: center; justify-content: space-between;
+      min-height: 50px; gap: 12px;
+    }
+    .nav-start { display: flex; align-items: center; gap: 4px; }
+    .cats-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-weight: 700; font-size: 13px; color: var(--dark);
+      padding: 8px 10px; border-radius: 4px;
+    }
+    .cats-btn:hover { color: var(--primary); }
+    .menu { display: flex; gap: 2px; }
+    .menu a {
+      padding: 8px 12px; font-size: 13px; font-weight: 600; color: #444; border-radius: 4px;
+    }
+    .menu a:hover, .menu a.active { color: var(--primary); }
+    .deal {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--primary); color: #fff; font-weight: 800; font-size: 13px;
+      padding: 9px 16px; border-radius: 4px;
+    }
+    .deal:hover { background: var(--primary-hover); }
+    .mob-nav { display: none !important; border-top: 1px solid var(--border); padding: 8px 0 12px; }
+    .mob-nav.open { display: block !important; }
+    .mob-nav a { display: block; padding: 10px 0; border-bottom: 1px solid #f5f5f5; font-weight: 600; color: #333; }
+
+    /* ========== HERO: slider + side ========== */
+    .hero { padding: 20px 0 0; }
+    .hero-top {
+      display: grid;
+      grid-template-columns: 1.95fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+      min-width: 0;
+    }
+    .hero-top > * { min-width: 0; max-width: 100%; }
+    .slider {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      min-height: 380px;
+      background: #333;
+    }
+    .slide {
+      display: none;
+      position: relative;
+      min-height: 380px;
+      color: #fff;
+    }
+    .slide.active { display: block; }
+    .slide img {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    }
+    .slide .shade {
+      position: absolute; inset: 0;
+      background: linear-gradient(100deg, rgba(214,6,68,.72) 0%, rgba(214,6,68,.35) 45%, rgba(0,0,0,.15) 100%);
+    }
+    .slide-inner {
+      position: relative; z-index: 1;
+      min-height: 380px;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 40px 48px 70px;
+      max-width: 520px;
+    }
+    .slide-badge {
+      width: 70px; height: 70px; border-radius: 50%;
+      background: var(--primary); color: #fff;
+      display: grid; place-items: center; text-align: center;
+      font-size: 13px; font-weight: 800; line-height: 1.2; margin-bottom: 14px;
+      box-shadow: 0 8px 20px rgba(0,0,0,.2);
+    }
+    .slide h2 { font-size: 32px; font-weight: 800; line-height: 1.35; margin-bottom: 8px; }
+    .slide p { font-size: 15px; margin-bottom: 18px; opacity: .95; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      height: 40px; padding: 0 22px; border-radius: 6px;
+      font-size: 13px; font-weight: 800; cursor: pointer;
+    }
+    .btn-pink { background: var(--primary); color: #fff; }
+    .btn-pink:hover { background: var(--primary-hover); }
+    .btn-white { background: #fff; color: var(--primary); }
+    .slider-arrow {
+      position: absolute; top: 42%; z-index: 3;
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(0,0,0,.45); color: #fff;
+      display: grid; place-items: center; cursor: pointer;
+    }
+    .slider-arrow:hover { background: rgba(0,0,0,.7); }
+    .slider-arrow.prev { right: 14px; }
+    .slider-arrow.next { left: 14px; }
+    .slider-arrow svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
+    .slider-tabs {
+      position: absolute; bottom: 0; inset-inline: 0; z-index: 3;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      background: rgba(0,0,0,.45);
+    }
+    .slider-tabs button {
+      padding: 12px 8px; color: rgba(255,255,255,.75); font-size: 12px; font-weight: 700;
+      cursor: pointer; border-left: 1px solid rgba(255,255,255,.12);
+    }
+    .slider-tabs button:last-child { border-left: 0; }
+    .slider-tabs button.active,
+    .slider-tabs button:hover { background: rgba(255,255,255,.18); color: #fff; }
+
+    .hero-side {
+      position: relative; border-radius: 12px; overflow: hidden; min-height: 380px;
+      background: linear-gradient(160deg, #d9f3f0, #f8e4ec);
+    }
+    .hero-side img {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    }
+    .hero-side .panel {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+      padding: 24px; text-align: center; color: #fff;
+      background: linear-gradient(transparent 40%, rgba(0,0,0,.45));
+    }
+    .hero-side .disc {
+      position: absolute; top: 16px; right: 16px;
+      width: 64px; height: 64px; border-radius: 50%;
+      background: var(--primary); color: #fff;
+      display: grid; place-items: center; text-align: center;
+      font-size: 12px; font-weight: 800; line-height: 1.15; z-index: 2;
+    }
+    .hero-side h3 { font-size: 22px; font-weight: 800; margin-bottom: 4px; }
+    .hero-side p { font-size: 13px; margin-bottom: 12px; }
+
+    .hero-banners {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+      margin-bottom: 20px;
+    }
+    .hb {
+      position: relative; border-radius: 12px; overflow: hidden; min-height: 200px;
+      display: flex; align-items: center; padding: 20px;
+    }
+    .hb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .35; }
+    .hb .txt { position: relative; z-index: 1; max-width: 70%; }
+    .hb h4 { font-size: 16px; font-weight: 800; color: var(--dark); margin-bottom: 6px; }
+    .hb p { font-size: 12px; color: #555; margin-bottom: 10px; }
+    .hb .mini-disc {
+      display: inline-block; background: var(--primary); color: #fff;
+      font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 4px; margin-bottom: 8px;
+    }
+    .hb-1 { background: #e8f5e0; }
+    .hb-2 { background: #dff3f8; }
+    .hb-3 { background: #f5e6f5; }
+
+    /* ========== FLASH SALE ========== */
+    .flash {
+      margin: 0 0 28px;
+      padding: 28px 0;
+    }
+    .flash-red { background: var(--sale-red); }
+    .flash-green { background: var(--sale-green); }
+    .flash-inner {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    .flash-side {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; color: #fff; gap: 14px; padding: 10px;
+    }
+    .flash-side img {
+      max-height: 260px;
+      width: auto;
+      max-width: 100%;
+      margin-inline: auto;
+    }
+    .flash-side .btn-white { margin-top: 4px; }
+    .flash-track {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      min-width: 0;
+    }
+    .pcard {
+      background: #fff; border-radius: 8px; overflow: hidden; position: relative;
+      min-width: 0;
+    }
+    .pcard-img { position: relative; aspect-ratio: 1; background: #f7f7f7; }
+    .pcard-img img { width: 100%; height: 100%; object-fit: cover; }
+    .tag-sale {
+      position: absolute; top: 10px; right: 10px;
+      background: var(--primary); color: #fff; font-size: 11px; font-weight: 800;
+      padding: 2px 8px; border-radius: 3px;
+    }
+    .tag-new {
+      position: absolute; top: 10px; right: 10px;
+      background: var(--sale-green); color: #fff; font-size: 11px; font-weight: 800;
+      padding: 2px 8px; border-radius: 3px;
+    }
+    .wish {
+      position: absolute; top: 10px; left: 10px;
+      width: 28px; height: 28px; border-radius: 50%; background: #fff;
+      display: grid; place-items: center; color: #bbb; cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,.08);
+    }
+    .wish:hover { color: var(--primary); }
+    .wish svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+    .pcard-body { padding: 12px; }
+    .pcard-body h3 {
+      font-size: 13px; font-weight: 700; color: var(--dark); line-height: 1.45;
+      min-height: 38px; margin-bottom: 6px;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .stars { color: #f5a623; font-size: 11px; letter-spacing: .5px; margin-bottom: 4px; }
+    .old { display: block; font-size: 12px; color: #aaa; text-decoration: line-through; }
+    .new { color: var(--primary); font-weight: 800; font-size: 14px; }
+    .timer {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid #f0f0f0; margin-top: 10px; padding-top: 8px; text-align: center;
+    }
+    .timer div { position: relative; }
+    .timer div:not(:last-child)::after {
+      content: ""; position: absolute; left: 0; top: 20%; height: 60%; width: 1px; background: #eee;
+    }
+    .timer b { display: block; font-size: 12px; color: #333; font-weight: 800; }
+    .timer small { font-size: 10px; color: #999; }
+
+    /* ========== GIFTS ========== */
+    .gifts {
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px;
+      padding: 10px 0 30px; text-align: center;
+    }
+    .gift {
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+    }
+    .gift-ico {
+      width: 110px; height: 110px; border-radius: 50%;
+      border: 2px solid #ffc0d0; display: grid; place-items: center;
+      background: #fff; transition: .25s;
+    }
+    .gift:hover .gift-ico { border-color: var(--primary); transform: translateY(-3px); }
+    .gift-ico img { width: 56px; height: 56px; object-fit: contain; }
+    .gift h4 { font-size: 14px; font-weight: 800; color: var(--dark); }
+    .gift .see {
+      font-size: 12px; font-weight: 700; color: var(--primary);
+      border: 1px solid var(--primary); border-radius: 20px; padding: 4px 14px;
+    }
+    .gift .see:hover { background: var(--primary); color: #fff; }
+
+    /* ========== SUGGEST ========== */
+    .block { padding: 10px 0 30px; }
+    .block-head {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; margin-bottom: 18px; flex-wrap: wrap;
+    }
+    .block-head h2 { font-size: 20px; font-weight: 800; color: var(--dark); }
+    .tabs { display: flex; gap: 4px; flex-wrap: wrap; }
+    .tabs button {
+      padding: 7px 14px; border-radius: 20px; font-size: 12px; font-weight: 700;
+      color: #666; border: 1px solid var(--border); cursor: pointer; background: #fff;
+    }
+    .tabs button.active, .tabs button:hover {
+      background: var(--primary); border-color: var(--primary); color: #fff;
+    }
+    .pgrid {
+      display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px;
+      min-width: 0;
+    }
+    .pgrid .pcard { min-width: 0; }
+
+    /* ========== PROMO ROWS ========== */
+    .promo3 {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+      margin-bottom: 16px;
+    }
+    .promo2 {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+      margin-bottom: 28px;
+    }
+    .promo {
+      position: relative; border-radius: 12px; overflow: hidden; min-height: 200px;
+    }
+    .promo img { width: 100%; height: 100%; object-fit: cover; min-height: 200px; }
+    .promo .cap {
+      position: absolute; inset: 0; padding: 22px;
+      display: flex; flex-direction: column; justify-content: center;
+      background: linear-gradient(90deg, rgba(255,255,255,.88), rgba(255,255,255,.2) 60%, transparent);
+      max-width: 70%;
+    }
+    .promo h3 { font-size: 18px; font-weight: 800; color: var(--dark); margin-bottom: 6px; }
+    .promo p { font-size: 12px; color: #555; margin-bottom: 12px; }
+    .promo.wide .cap {
+      background: linear-gradient(90deg, rgba(0,0,0,.4), transparent 70%);
+      color: #fff; max-width: 55%;
+    }
+    .promo.wide h3 { color: #fff; font-size: 22px; }
+    .promo.wide p { color: rgba(255,255,255,.9); }
+
+    /* ========== BLOG ========== */
+    .center-title { text-align: center; margin-bottom: 22px; }
+    .center-title h2 { font-size: 22px; font-weight: 800; color: var(--dark); }
+    .blog {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+      margin-bottom: 30px;
+    }
+    .bcard {
+      border: 1px solid #f0f0f0; border-radius: 10px; overflow: hidden; background: #fff;
+    }
+    .bcard-img { position: relative; aspect-ratio: 16/10; overflow: hidden; }
+    .bcard-img img { width: 100%; height: 100%; object-fit: cover; }
+    .bdate {
+      position: absolute; top: 10px; right: 10px;
+      background: #fff; border-radius: 6px; padding: 5px 9px; text-align: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,.1); line-height: 1.15;
+    }
+    .bdate b { display: block; color: var(--primary); font-size: 15px; }
+    .bdate span { font-size: 10px; color: #888; }
+    .bcard-body { padding: 14px; }
+    .bcat { font-size: 11px; color: var(--primary); font-weight: 700; margin-bottom: 4px; }
+    .bcard-body h3 {
+      font-size: 14px; font-weight: 800; color: var(--dark); line-height: 1.5; margin-bottom: 8px;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .bcard-body p {
+      font-size: 12px; color: #888; margin-bottom: 10px;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .more { color: var(--primary); font-weight: 800; font-size: 13px; }
+
+    /* ========== BEST ========== */
+    .best {
+      display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px;
+      margin-bottom: 20px;
+    }
+    .best a { text-align: center; }
+    .best .pic {
+      aspect-ratio: 1; border-radius: 8px; overflow: hidden; background: #f7f7f7;
+      border: 1px solid #f0f0f0; margin-bottom: 8px;
+    }
+    .best img { width: 100%; height: 100%; object-fit: cover; }
+    .best h4 {
+      font-size: 12px; font-weight: 700; color: var(--dark); margin-bottom: 4px;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .best .pr { color: var(--primary); font-weight: 800; font-size: 13px; }
+
+    /* ========== NEWSLETTER / FOOTER ========== */
+    .news {
+      background: #f3f3f3; padding: 28px 0; text-align: center;
+    }
+    .news h3 { font-size: 16px; font-weight: 800; color: var(--dark); margin-bottom: 6px; }
+    .news p { font-size: 13px; margin-bottom: 14px; }
+    .news form {
+      display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;
+      width: min(100%, 420px); margin-inline: auto;
+    }
+    .news input {
+      height: 42px; border: 1px solid var(--border); border-radius: 4px;
+      padding: 0 14px; flex: 1 1 180px; min-width: 0; max-width: 100%;
+      background: #fff; outline: 0;
+    }
+    .news button {
+      height: 42px; padding: 0 20px; background: var(--primary); color: #fff;
+      border-radius: 4px; font-weight: 800; cursor: pointer;
+    }
+
+    .footer { padding: 36px 0 0; border-top: 1px solid var(--border); }
+    .footer-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; padding-bottom: 28px;
+    }
+    .footer h4 { font-size: 14px; font-weight: 800; color: var(--dark); margin-bottom: 14px; }
+    .footer li { margin-bottom: 8px; }
+    .footer a { font-size: 13px; color: #777; }
+    .footer a:hover { color: var(--primary); }
+    .footer-bottom {
+      background: #2a2a2a; color: #aaa; padding: 14px 0;
+    }
+    .footer-bottom .wrap {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+    }
+    .trust { display: flex; gap: 8px; }
+    .trust span {
+      width: 56px; height: 56px; background: #fff; border-radius: 6px;
+      display: grid; place-items: center; font-size: 10px; color: #777; text-align: center; line-height: 1.2; padding: 4px;
+    }
+
+    .to-top {
+      position: fixed; bottom: 20px; inset-inline-start: 16px; z-index: 50;
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--primary); color: #fff; display: grid; place-items: center;
+      cursor: pointer; opacity: 0; pointer-events: none; transition: .25s;
+      box-shadow: 0 6px 16px rgba(214,6,68,.35);
+    }
+    .to-top.show { opacity: 1; pointer-events: auto; }
+    .to-top svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+    @media (max-width: 1100px) {
+      .header-row { grid-template-columns: auto 1fr auto; }
+      .menu, .cats-btn { display: none; }
+      .burger { display: flex; }
+      .pgrid, .best { grid-template-columns: repeat(3, 1fr); }
+      .flash-track { grid-template-columns: repeat(2, 1fr); }
+      .gifts { grid-template-columns: repeat(3, 1fr); }
+      .blog { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .wrap { width: min(100% - 24px, var(--container)); }
+      .topbar-links { display: none; }
+      .header-row {
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 8px;
+      }
+      .search { grid-column: 1 / -1; order: 3; max-width: none; }
+      .search select { max-width: 110px; }
+      .tools { gap: 4px; flex-shrink: 0; }
+      .tools .login span { display: none; }
+      .tools .login { width: 40px; padding: 0; justify-content: center; }
+      .tools .icon-btn[aria-label="مقایسه"] { display: none; }
+      .deal { display: none; }
+      .navrow .wrap:first-child { display: none; }
+      .hero-top { grid-template-columns: 1fr; }
+      .slider, .slide, .slide-inner, .hero-side { min-height: 280px; }
+      .slide h2 { font-size: 22px; }
+      .slide-inner { padding: 24px 20px 64px; max-width: 100%; }
+      .slider-tabs { grid-template-columns: repeat(2, 1fr); }
+      .slider-tabs button { font-size: 11px; padding: 10px 6px; }
+      .hero-banners, .promo3 { grid-template-columns: 1fr; }
+      .promo2 { grid-template-columns: 1fr; }
+      .flash { padding: 20px 0; }
+      .flash-inner { grid-template-columns: 1fr; gap: 14px; }
+      .flash-side { padding: 0 8px; }
+      .flash-side img { max-height: 180px; }
+      .flash-track, .pgrid, .best {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+      .gifts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+      .gift-ico { width: 88px; height: 88px; }
+      .blog { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .logo-text span { display: none; }
+      .block-head { flex-direction: column; align-items: stretch; }
+      .tabs { width: 100%; }
+      .tabs button { flex: 1 1 auto; text-align: center; }
+      .promo .cap, .hb .txt { max-width: 85%; }
+      .news input { flex: 1 1 100%; }
+      .to-top { inset-inline-start: 12px; bottom: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="wrap">
+      <div class="topbar-links">
+        <a href="#">مجله</a>
+        <a href="#">مطالب کاربران</a>
+        <a href="#">مشاوره</a>
+        <a href="#contact">تماس با ما</a>
+        <a href="#">برندها</a>
+        <span>فروشگاه اینترنتی هاشمزاده</span>
+      </div>
+      <div class="topbar-social">
+        <a href="#" aria-label="pinterest"><svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12c0 5.1 3.2 9.4 7.6 11.1-.1-.9-.2-2.4 0-3.4.2-.9 1.4-5.8 1.4-5.8s-.4-.7-.4-1.8c0-1.7 1-2.9 2.2-2.9 1 0 1.5.8 1.5 1.7 0 1-.7 2.6-1 4-.3 1.2.6 2.2 1.8 2.2 2.1 0 3.8-2.3 3.8-5.5 0-2.9-2.1-4.9-5-4.9-3.4 0-5.4 2.5-5.4 5.2 0 1 .4 2.1.9 2.7l-.3 1.3c0 .2-.2.3-.4.2-1.5-.7-2.4-2.9-2.4-4.7 0-3.8 2.8-7.3 8-7.3 4.2 0 7.5 3 7.5 7 0 4.2-2.6 7.5-6.3 7.5-1.2 0-2.4-.6-2.8-1.4l-.8 2.9c-.3 1.1-1 2.4-1.5 3.2 1.1.3 2.3.5 3.5.5 6.6 0 12-5.4 12-12S18.6 0 12 0z"/></svg></a>
+        <a href="#" aria-label="youtube"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2 31 31 0 000 12a31 31 0 00.5 5.8 3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1A31 31 0 0024 12a31 31 0 00-.5-5.8zM9.8 15.5v-7l6.3 3.5-6.3 3.5z"/></svg></a>
+        <a href="#" aria-label="instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.9.2 2.3.4.6.2 1 .5 1.5 1s.8.9 1 1.5c.2.4.3 1.1.4 2.3.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.9-.4 2.3-.2.6-.5 1-1 1.5s-.9.8-1.5 1c-.4.2-1.1.3-2.3.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.9-.2-2.3-.4-.6-.2-1-.5-1.5-1s-.8-.9-1-1.5c-.2-.4-.3-1.1-.4-2.3C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.9.4-2.3.2-.6.5-1 1-1.5s.9-.8 1.5-1c.4-.2 1.1-.3 2.3-.4C8.4 2.2 8.8 2.2 12 2.2m0 5.6A4.2 4.2 0 1016.2 12 4.2 4.2 0 0012 7.8zm6.4-2.7a1 1 0 11-1 1 1 1 0 011-1z"/></svg></a>
+        <a href="#" aria-label="x"><svg viewBox="0 0 24 24"><path d="M18.2 2H21l-6.7 7.6L22.5 22h-6.6l-5.2-6.8L5 22H2.2l7.1-8.2L1.5 2H8.3l4.7 6.2L18.2 2z"/></svg></a>
+        <a href="#" aria-label="facebook"><svg viewBox="0 0 24 24"><path d="M14 13.5h2.5l1-4H14v-2c0-1 0-2 2-2h1.5V2.14C17.17 2.1 15.9 2 14.5 2 11.6 2 9.5 3.8 9.5 7.3V9.5H7v4h2.5V22h4.5v-8.5z"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="wrap header-row">
+      <a class="logo" href="#">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l9-8 9 8M5 10v9a1 1 0 001 1h3v-5h6v5h3a1 1 0 001-1v-9"/></svg>
+        </span>
+        <span class="logo-text">
+          <strong>هاشمزاده</strong>
+          <span>کالای خواب</span>
+        </span>
+      </a>
+
+      <form class="search" action="#" role="search">
+        <input type="search" placeholder="جستجوی محصولات" required />
+        <select aria-label="دسته‌بندی">
+          <option>انتخاب دسته بندی</option>
+          <option>تشک</option>
+          <option>بالش</option>
+          <option>روتختی</option>
+          <option>پتو</option>
+        </select>
+        <button type="submit" aria-label="جستجو"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg></button>
+      </form>
+
+      <div class="tools">
+        <a href="#" class="login"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM4 21a8 8 0 0116 0"/></svg><span>ورود / ثبت نام</span></a>
+        <a href="#" class="icon-btn" aria-label="مقایسه"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 20V10m8 10V4m8 16v-8"/></svg><span class="n">۰</span></a>
+        <a href="#" class="icon-btn" aria-label="علاقه‌مندی"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg><span class="n">۰</span></a>
+        <a href="#" class="cart-round" aria-label="سبد"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 7h12l-1 12H7L6 7zm3-3h6l1 3H8l1-3z"/></svg><span class="n">۰</span></a>
+        <button class="burger" id="burger" type="button" aria-label="منو"><i></i><i></i><i></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAV -->
+  <div class="navrow">
+    <div class="wrap">
+      <div class="nav-start">
+        <a href="#shop" class="cats-btn">☰ دسته بندی کالاها</a>
+        <nav class="menu">
+          <a href="#" class="active">صفحه نخست</a>
+          <a href="#shop">فروشگاه</a>
+          <a href="#blog">مجله</a>
+          <a href="#contact">تماس با ما</a>
+          <a href="#">درباره ما</a>
+        </nav>
+      </div>
+      <a href="#offers" class="deal">✓ تخفیف های روز</a>
+    </div>
+    <div class="wrap mob-nav" id="mobNav">
+      <a href="#">صفحه نخست</a>
+      <a href="#shop">فروشگاه</a>
+      <a href="#blog">مجله</a>
+      <a href="#contact">تماس با ما</a>
+      <a href="#offers">تخفیف های روز</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-top">
+        <div class="slider" id="slider">
+          <div class="slide active" data-i="0">
+            <img src="images/hero-main.jpg" alt="" />
+            <div class="shade"></div>
+            <div class="slide-inner">
+              <div class="slide-badge">٪۳۴<br/>تخفیف</div>
+              <h2>انواع روتختی مخمل</h2>
+              <p>نرمی که شب‌هاتو عوض می‌کنه!</p>
+              <a href="#shop" class="btn btn-white">خرید</a>
+            </div>
+          </div>
+          <div class="slide" data-i="1">
+            <img src="images/mattress.jpg" alt="" />
+            <div class="shade"></div>
+            <div class="slide-inner">
+              <div class="slide-badge">٪۲۵<br/>تخفیف</div>
+              <h2>انواع تشک طبی</h2>
+              <p>خواب عمیق با حمایت کامل کمر</p>
+              <a href="#shop" class="btn btn-white">خرید</a>
+            </div>
+          </div>
+          <div class="slide" data-i="2">
+            <img src="images/pillow.jpg" alt="" />
+            <div class="shade"></div>
+            <div class="slide-inner">
+              <div class="slide-badge">٪۴۰<br/>تخفیف</div>
+              <h2>محصولات هاشمزاده</h2>
+              <p>بالش، پتو و ست خواب با ضمانت کیفیت</p>
+              <a href="#shop" class="btn btn-white">خرید</a>
+            </div>
+          </div>
+          <div class="slide" data-i="3">
+            <img src="images/blanket.jpg" alt="" />
+            <div class="shade"></div>
+            <div class="slide-inner">
+              <div class="slide-badge">٪۱۸<br/>تخفیف</div>
+              <h2>پتو و لحاف زمستانی</h2>
+              <p>گرمای لطیف برای شب‌های سرد</p>
+              <a href="#shop" class="btn btn-white">خرید</a>
+            </div>
+          </div>
+          <button class="slider-arrow prev" type="button" id="prevSlide" aria-label="قبل"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6"/></svg></button>
+          <button class="slider-arrow next" type="button" id="nextSlide" aria-label="بعد"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 18l-6-6 6-6"/></svg></button>
+          <div class="slider-tabs" id="sliderTabs">
+            <button type="button" class="active" data-i="0">انواع روتختی</button>
+            <button type="button" data-i="1">انواع تشک</button>
+            <button type="button" data-i="2">محصولات هاشمزاده</button>
+            <button type="button" data-i="3">پتو و لحاف</button>
+          </div>
+        </div>
+
+        <a href="#shop" class="hero-side">
+          <span class="disc">٪۵۵<br/>تخفیف</span>
+          <img src="images/hero-side.jpg" alt="بالش طبی" />
+          <div class="panel">
+            <h3>انواع بالش طبی</h3>
+            <p>همیشه راحت بخوابید!</p>
+            <span class="btn btn-pink">خرید</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="hero-banners">
+        <a href="#shop" class="hb hb-1">
+          <img src="images/banner-green.jpg" alt="" />
+          <div class="txt">
+            <span class="mini-disc">٪۴۸ تخفیف</span>
+            <h4>انواع نرم‌کننده روتختی</h4>
+            <p>پارچه‌های لطیف و ضدحساسیت</p>
+            <span class="btn btn-pink">خرید</span>
+          </div>
+        </a>
+        <a href="#shop" class="hb hb-2">
+          <img src="images/banner-blue.jpg" alt="" />
+          <div class="txt">
+            <h4>انبار تکانی</h4>
+            <p>کالای خواب فصلی با قیمت ویژه</p>
+            <span class="btn btn-pink">خرید</span>
+          </div>
+        </a>
+        <a href="#shop" class="hb hb-3">
+          <img src="images/banner-purple.jpg" alt="" />
+          <div class="txt">
+            <span class="mini-disc">٪۳۰ تخفیف</span>
+            <h4>عطر خواب آرامش</h4>
+            <p>ست بالش و پتو معطر</p>
+            <span class="btn btn-pink">خرید</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- RED FLASH -->
+  <section class="flash flash-red" id="offers">
+    <div class="wrap flash-inner">
+      <div class="flash-side">
+        <img src="images/sale-red-side.png" alt="پیشنهاد شگفت‌انگیز" />
+        <a href="#shop" class="btn btn-white">مشاهده همه</a>
+      </div>
+      <div class="flash-track">
+        <article class="pcard">
+          <div class="pcard-img">
+            <span class="tag-sale">٪۱۹-</span>
+            <button class="wish" type="button" aria-label="علاقه‌مندی"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></button>
+            <img src="images/pillow.jpg" alt="" />
+          </div>
+          <div class="pcard-body">
+            <h3>بالش طبی مموری فوم هاشمزاده</h3>
+            <span class="old">۱٬۵۹۰٬۰۰۰ تومان</span>
+            <span class="new">۱٬۲۹۰٬۰۰۰ تومان</span>
+            <div class="timer" data-countdown="2026-11-06T23:59:59"><div><b data-d>۰۰</b><small>روز</small></div><div><b data-h>۰۰</b><small>ساعت</small></div><div><b data-m>۰۰</b><small>دقیقه</small></div><div><b data-s>۰۰</b><small>ثانیه</small></div></div>
+          </div>
+        </article>
+        <article class="pcard">
+          <div class="pcard-img">
+            <span class="tag-sale">٪۲۶-</span>
+            <button class="wish" type="button" aria-label="علاقه‌مندی"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></button>
+            <img src="images/hero-bed.jpg" alt="" />
+          </div>
+          <div class="pcard-body">
+            <h3>روتختی مخمل دو نفره کلاسیک</h3>
+            <span class="old">۳٬۸۰۰٬۰۰۰ تومان</span>
+            <span class="new">۲٬۸۱۰٬۰۰۰ تومان</span>
+            <div class="timer" data-countdown="2026-11-07T18:00:00"><div><b data-d>۰۰</b><small>روز</small></div><div><b data-h>۰۰</b><small>ساعت</small></div><div><b data-m>۰۰</b><small>دقیقه</small></div><div><b data-s>۰۰</b><small>ثانیه</small></div></div>
+          </div>
+        </article>
+        <article class="pcard">
+          <div class="pcard-img">
+            <span class="tag-sale">٪۱۵-</span>
+            <button class="wish" type="button" aria-label="علاقه‌مندی"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></button>
+            <img src="images/mattress.jpg" alt="" />
+          </div>
+          <div class="pcard-body">
+            <h3>تشک فنری طبی ۱۸۰×۲۰۰</h3>
+            <span class="old">۹٬۹۰۰٬۰۰۰ تومان</span>
+            <span class="new">۸٬۴۱۵٬۰۰۰ تومان</span>
+            <div class="timer" data-countdown="2026-11-08T12:00:00"><div><b data-d>۰۰</b><small>روز</small></div><div><b data-h>۰۰</b><small>ساعت</small></div><div><b data-m>۰۰</b><small>دقیقه</small></div><div><b data-s>۰۰</b><small>ثانیه</small></div></div>
+          </div>
+        </article>
+        <article class="pcard">
+          <div class="pcard-img">
+            <span class="tag-sale">٪۲۲-</span>
+            <button class="wish" type="button" aria-label="علاقه‌مندی"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></button>
+            <img src="images/blanket.jpg" alt="" />
+          </div>
+          <div class="pcard-body">
+            <h3>پتو سبک زمستانی دو نفره</h3>
+            <span class="old">۱٬۲۰۰٬۰۰۰ تومان</span>
+            <span class="new">۹۳۶٬۰۰۰ تومان</span>
+            <div class="timer" data-countdown="2026-11-05T20:30:00"><div><b data-d>۰۰</b><small>روز</small></div><div><b data-h>۰۰</b><small>ساعت</small></div><div><b data-m>۰۰</b><small>دقیقه</small></div><div><b data-s>۰۰</b><small>ثانیه</small></div></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- GIFTS / CATEGORIES -->
+  <div class="wrap">
+    <div class="gifts" id="shop">
+      <a href="#shop" class="gift">
+        <div class="gift-ico"><img src="images/gift-1.svg" alt="" /></div>
+        <h4>هدیه چی بدم؟!</h4>
+        <span class="see">مشاهده</span>
+      </a>
+      <a href="#shop" class="gift">
+        <div class="gift-ico"><img src="images/gift-2.svg" alt="" /></div>
+        <h4>هدیه برای خانم‌ها</h4>
+        <span class="see">مشاهده</span>
+      </a>
+      <a href="#shop" class="gift">
+        <div class="gift-ico"><img src="images/gift-3.svg" alt="" /></div>
+        <h4>هدیه برای آقایان</h4>
+        <span class="see">مشاهده</span>
+      </a>
+      <a href="#shop" class="gift">
+        <div class="gift-ico"><img src="images/gift-4.svg" alt="" /></div>
+        <h4>کارت هدیه هاشمزاده</h4>
+        <span class="see">مشاهده</span>
+      </a>
+      <a href="#shop" class="gift">
+        <div class="gift-ico"><img src="images/gift-5.svg" alt="" /></div>
+        <h4>جعبه های جادویی</h4>
+        <span class="see">مشاهده</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- SUGGESTIONS -->
+  <section class="block">
+    <div class="wrap">
+      <div class="block-head">
+        <h2>آفروز | پیشنهادات هاشمزاده</h2>
+        <div class="tabs" id="tabs">
+          <button type="button" class="active" data-f="all">همه</button>
+          <button type="button" data-f="mattress">تشک</button>
+          <button type="button" data-f="care">مراقبت خواب</button>
+          <button type="button" data-f="duvet">روتختی</button>
+          <button type="button" data-f="pillow">بالش</button>
+        </div>
+      </div>
+      <div class="pgrid" id="grid">
+        <article class="pcard" data-f="pillow"><div class="pcard-img"><span class="tag-new">جدید</span><button class="wish" type="button" aria-label="علاقه‌مندی"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></button><img src="images/pillow.jpg" alt="" /></div><div class="pcard-body"><h3>بالش طبی ارتوپدی</h3><div class="stars">★★★★★</div><span class="new">۱٬۲۹۰٬۰۰۰ تومان</span></div></article>
+        <article class="pcard" data-f="duvet"><div class="pcard-img"><span class="tag-sale">٪۲۰-</span><button class="wish" type="button" aria-label="علاقه‌مندی"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></button><img src="images/hero-bed.jpg" alt="" /></div><div class="pcard-body"><h3>روتختی ساتن دونفره</h3><div class="stars">★★★★☆</div><span class="old">۳٬۲۰۰٬۰۰۰</span><span class="new">۲٬۵۶۰٬۰۰۰ تومان</span></div></article>
+        <article class="pcard" data-f="mattress"><div class="pcard-img"><span class="tag-new">جدید</span><button class="wish" type="button" aria-label="علاقه‌مندی"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></button><img src="images/mattress.jpg" alt="" /></div><div class="pcard-body"><h3>تشک فنری طبی هاشمزاده</h3><div class="stars">★★★★★</div><span class="new">۸٬۹۰۰٬۰۰۰ تومان</span></div></article>
+        <article class="pcard" data-f="care"><div class="pcard-img"><button class="wish" type="button" aria-label="علاقه‌مندی"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></button><img src="images/duvet.jpg" alt="" /></div><div class="pcard-body"><h3>لحاف سبک چهارفصل</h3><div class="stars">★★★★☆</div><span class="new">۱٬۷۵۰٬۰۰۰ تومان</span></div></article>
+        <article class="pcard" data-f="care"><div class="pcard-img"><span class="tag-sale">٪۱۰-</span><button class="wish" type="button" aria-label="علاقه‌مندی"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></button><img src="images/sheet.jpg" alt="" /></div><div class="pcard-body"><h3>ست ملحفه کتان</h3><div class="stars">★★★★★</div><span class="old">۲٬۱۵۰٬۰۰۰</span><span class="new">۱٬۹۳۵٬۰۰۰ تومان</span></div></article>
+        <article class="pcard" data-f="mattress"><div class="pcard-img"><button class="wish" type="button" aria-label="علاقه‌مندی"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></button><img src="images/bed-set.jpg" alt="" /></div><div class="pcard-body"><h3>ست خواب کامل عروس</h3><div class="stars">★★★★★</div><span class="new">۱۲٬۵۰۰٬۰۰۰ تومان</span></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMO 3 -->
+  <div class="wrap promo3">
+    <a href="#shop" class="promo" style="background:#fff4c8">
+      <img src="images/promo-yellow.jpg" alt="" style="opacity:.4" />
+      <div class="cap"><h3>مراقبت از تشک</h3><p>محافظ و رویه تشک</p><span class="btn btn-pink">خرید</span></div>
+    </a>
+    <a href="#shop" class="promo" style="background:#e5f8ea">
+      <img src="images/promo-mint.jpg" alt="" style="opacity:.35" />
+      <div class="cap"><h3>محصولات حرفه‌ای</h3><p>تشک هتلی و طبی</p><span class="btn btn-pink">خرید</span></div>
+    </a>
+    <a href="#shop" class="promo" style="background:#e8f0ff">
+      <img src="images/banner-blue.jpg" alt="" style="opacity:.35" />
+      <div class="cap"><h3>ضدآفتاب خواب؟ نه!</h3><p>روتختی خنک تابستانی</p><span class="btn btn-pink">خرید</span></div>
+    </a>
+  </div>
+
+  <!-- PROMO 2 WIDE -->
+  <div class="wrap promo2">
+    <a href="#shop" class="promo wide">
+      <img src="images/wide-green.jpg" alt="" />
+      <div class="cap"><h3>محصولات نخی</h3><p>ملحفه و روبالشی تنفس‌پذیر</p><span class="btn btn-white" style="width:fit-content">مشاهده</span></div>
+    </a>
+    <a href="#shop" class="promo wide">
+      <img src="images/wide-blue.jpg" alt="" />
+      <div class="cap"><h3>محصولات آقایان</h3><p>بالش و پتوی اسپرت</p><span class="btn btn-white" style="width:fit-content">مشاهده</span></div>
+    </a>
+  </div>
+
+  <!-- GREEN FLASH -->
+  <section class="flash flash-green">
+    <div class="wrap flash-inner">
+      <div class="flash-side">
+        <img src="images/sale-green-side.png" alt="پیشنهاد سورپرایز" />
+        <a href="#shop" class="btn btn-white">مشاهده همه</a>
+      </div>
+      <div class="flash-track">
+        <article class="pcard"><div class="pcard-img"><span class="tag-sale">٪۳۰-</span><button class="wish" type="button" aria-label="علاقه‌مندی"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></button><img src="images/duvet.jpg" alt="" /></div><div class="pcard-body"><h3>لحاف پر قو سبک</h3><span class="old">۴٬۵۰۰٬۰۰۰</span><span class="new">۳٬۱۵۰٬۰۰۰ تومان</span><div class="timer" data-countdown="2026-11-09T23:59:59"><div><b data-d>۰۰</b><small>روز</small></div><div><b data-h>۰۰</b><small>ساعت</small></div><div><b data-m>۰۰</b><small>دقیقه</small></div><div><b data-s>۰۰</b><small>ثانیه</small></div></div></div></article>
+        <article class="pcard"><div class="pcard-img"><span class="tag-sale">٪۱۸-</span><button class="wish" type="button" aria-label="علاقه‌مندی"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></button><img src="images/bed-set.jpg" alt="" /></div><div class="pcard-body"><h3>ست خواب دونفره مخمل</h3><span class="old">۶٬۸۰۰٬۰۰۰</span><span class="new">۵٬۵۷۶٬۰۰۰ تومان</span><div class="timer" data-countdown="2026-11-10T12:00:00"><div><b data-d>۰۰</b><small>روز</small></div><div><b data-h>۰۰</b><small>ساعت</small></div><div><b data-m>۰۰</b><small>دقیقه</small></div><div><b data-s>۰۰</b><small>ثانیه</small></div></div></div></article>
+        <article class="pcard"><div class="pcard-img"><span class="tag-sale">٪۲۵-</span><button class="wish" type="button" aria-label="علاقه‌مندی"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></button><img src="images/blanket.jpg" alt="" /></div><div class="pcard-body"><h3>پتو مسافرتی نرم</h3><span class="old">۸۵۰٬۰۰۰</span><span class="new">۶۳۷٬۰۰۰ تومان</span><div class="timer" data-countdown="2026-11-05T08:00:00"><div><b data-d>۰۰</b><small>روز</small></div><div><b data-h>۰۰</b><small>ساعت</small></div><div><b data-m>۰۰</b><small>دقیقه</small></div><div><b data-s>۰۰</b><small>ثانیه</small></div></div></div></article>
+        <article class="pcard"><div class="pcard-img"><span class="tag-sale">٪۱۴-</span><button class="wish" type="button" aria-label="علاقه‌مندی"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></button><img src="images/pillow.jpg" alt="" /></div><div class="pcard-body"><h3>بالش پر قو جفتی</h3><span class="old">۲٬۴۰۰٬۰۰۰</span><span class="new">۲٬۰۶۴٬۰۰۰ تومان</span><div class="timer" data-countdown="2026-11-11T23:59:59"><div><b data-d>۰۰</b><small>روز</small></div><div><b data-h>۰۰</b><small>ساعت</small></div><div><b data-m>۰۰</b><small>دقیقه</small></div><div><b data-s>۰۰</b><small>ثانیه</small></div></div></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section class="block" id="blog">
+    <div class="wrap">
+      <div class="center-title"><h2>مجله خواب هاشمزاده</h2></div>
+      <div class="blog">
+        <article class="bcard"><div class="bcard-img"><img src="images/mattress.jpg" alt="" /><div class="bdate"><b>۱۲</b><span>مهر</span></div></div><div class="bcard-body"><div class="bcat">راهنمای خرید</div><h3>چطور تشک مناسب انتخاب کنیم؟</h3><p>سفتی، ارتفاع و نوع خواب مهم‌ترین معیارها هستند...</p><a href="#" class="more">ادامه مطلب</a></div></article>
+        <article class="bcard"><div class="bcard-img"><img src="images/pillow.jpg" alt="" /><div class="bdate"><b>۵</b><span>مهر</span></div></div><div class="bcard-body"><div class="bcat">سلامت خواب</div><h3>فواید بالش طبی برای گردن</h3><p>بالش مموری فوم فشار عضلانی را کاهش می‌دهد...</p><a href="#" class="more">ادامه مطلب</a></div></article>
+        <article class="bcard"><div class="bcard-img"><img src="images/duvet.jpg" alt="" /><div class="bdate"><b>۲۸</b><span>شهریور</span></div></div><div class="bcard-body"><div class="bcat">مراقبت</div><h3>نکات نگهداری روتختی</h3><p>دمای آب و شوینده عمر پارچه را بالا می‌برد...</p><a href="#" class="more">ادامه مطلب</a></div></article>
+        <article class="bcard"><div class="bcard-img"><img src="images/hero-bed.jpg" alt="" /><div class="bdate"><b>۲۰</b><span>شهریور</span></div></div><div class="bcard-body"><div class="bcat">سبک زندگی</div><h3>۱۰ عادت برای خواب عمیق‌تر</h3><p>نور، دما و روتین شبانه کیفیت خواب را می‌سازند...</p><a href="#" class="more">ادامه مطلب</a></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEST -->
+  <section class="block">
+    <div class="wrap">
+      <div class="block-head"><h2>پر فروش ترین محصولات</h2></div>
+      <div class="best">
+        <a href="#shop"><div class="pic"><img src="images/mattress.jpg" alt="" /></div><h4>تشک فنری طبی</h4><div class="pr">۸٬۹۰۰٬۰۰۰ ت</div></a>
+        <a href="#shop"><div class="pic"><img src="images/pillow.jpg" alt="" /></div><h4>بالش مموری فوم</h4><div class="pr">۱٬۲۹۰٬۰۰۰ ت</div></a>
+        <a href="#shop"><div class="pic"><img src="images/hero-bed.jpg" alt="" /></div><h4>روتختی مخمل</h4><div class="pr">۲٬۸۵۰٬۰۰۰ ت</div></a>
+        <a href="#shop"><div class="pic"><img src="images/blanket.jpg" alt="" /></div><h4>پتو زمستانی</h4><div class="pr">۹۸۰٬۰۰۰ ت</div></a>
+        <a href="#shop"><div class="pic"><img src="images/sheet.jpg" alt="" /></div><h4>ملحفه کتان</h4><div class="pr">۱٬۸۹۰٬۰۰۰ ت</div></a>
+        <a href="#shop"><div class="pic"><img src="images/bed-set.jpg" alt="" /></div><h4>ست خواب کامل</h4><div class="pr">۱۲٬۵۰۰٬۰۰۰ ت</div></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <div class="news">
+    <div class="wrap">
+      <h3>همیشه اولین نفر باشید!</h3>
+      <p>برای اطلاع از آخرین تخفیف‌ها و جدیدترین کالاها در خبرنامه ثبت‌نام کنید.</p>
+      <form onsubmit="return false;">
+        <input type="email" placeholder="ایمیل شما" required />
+        <button type="submit">عضویت</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="contact">
+    <div class="wrap footer-grid">
+      <div><h4>راهنمای مشتریان</h4><ul><li><a href="#">پیگیری سفارش</a></li><li><a href="#">شرایط مرجوعی</a></li><li><a href="#">راهنمای خرید</a></li><li><a href="#">سوالات متداول</a></li></ul></div>
+      <div><h4>فروشگاه</h4><ul><li><a href="#shop">تشک</a></li><li><a href="#shop">بالش</a></li><li><a href="#shop">روتختی</a></li><li><a href="#shop">پتو و لحاف</a></li></ul></div>
+      <div><h4>حساب کاربری</h4><ul><li><a href="#">ورود</a></li><li><a href="#">ثبت‌نام</a></li><li><a href="#">سبد خرید</a></li><li><a href="#">علاقه‌مندی‌ها</a></li></ul></div>
+      <div><h4>تماس با ما</h4><ul><li><a href="tel:02191001234" dir="ltr">۰۲۱-۹۱۰۰۱۲۳۴</a></li><li><a href="mailto:info@hashemzadeh.ir">info@hashemzadeh.ir</a></li><li>تهران، ولیعصر، پلاک ۱۲۴</li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="wrap">
+        <div class="trust"><span>نماد<br/>اعتماد</span><span>ساماندهی</span><span>پرداخت<br/>امن</span></div>
+        <p style="font-size:12px">© ۱۴۰۵ کالای خواب هاشمزاده — تمامی حقوق محفوظ است.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" type="button" aria-label="بالا"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg></button>
+
+  <script>
+    // Mobile nav
+    document.getElementById('burger')?.addEventListener('click', () => {
+      document.getElementById('mobNav').classList.toggle('open');
+    });
+
+    // Slider
+    let si = 0;
+    const slides = [...document.querySelectorAll('.slide')];
+    const tabBtns = [...document.querySelectorAll('#sliderTabs button')];
+    function goSlide(i) {
+      si = (i + slides.length) % slides.length;
+      slides.forEach((s, n) => s.classList.toggle('active', n === si));
+      tabBtns.forEach((t, n) => t.classList.toggle('active', n === si));
+    }
+    document.getElementById('prevSlide')?.addEventListener('click', () => goSlide(si - 1));
+    document.getElementById('nextSlide')?.addEventListener('click', () => goSlide(si + 1));
+    tabBtns.forEach(t => t.addEventListener('click', () => goSlide(+t.dataset.i)));
+    setInterval(() => goSlide(si + 1), 6000);
+
+    // Tabs filter
+    document.querySelectorAll('#tabs button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#tabs button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.dataset.f;
+        document.querySelectorAll('#grid .pcard').forEach(c => {
+          c.style.display = (f === 'all' || c.dataset.f === f) ? '' : 'none';
+        });
+      });
+    });
+
+    // Countdown
+    const fa = n => String(n).padStart(2,'0').replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]);
+    function tick() {
+      document.querySelectorAll('[data-countdown]').forEach(el => {
+        let diff = Math.max(0, new Date(el.dataset.countdown) - Date.now());
+        const d = Math.floor(diff / 86400000); diff %= 86400000;
+        const h = Math.floor(diff / 3600000); diff %= 3600000;
+        const m = Math.floor(diff / 60000); diff %= 60000;
+        const s = Math.floor(diff / 1000);
+        el.querySelector('[data-d]').textContent = fa(d);
+        el.querySelector('[data-h]').textContent = fa(h);
+        el.querySelector('[data-m]').textContent = fa(m);
+        el.querySelector('[data-s]').textContent = fa(s);
+      });
+    }
+    tick(); setInterval(tick, 1000);
+
+    const toTop = document.getElementById('toTop');
+    window.addEventListener('scroll', () => toTop.classList.toggle('show', scrollY > 400));
+    toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+</body>
+</html>
