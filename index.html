@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>قالب‌های مشتریان</title>
+  <meta name="description" content="پیش‌نمایش طرح‌های اولیه فروشگاه عبداللهی و کالای خواب هاشمزاده" />
+  <link rel="stylesheet" href="shop-bedding/assets/css/fonts.css" />
+  <style>
+    :root {
+      --paper: #e7e0d6;
+      --ink: #1a1612;
+      --muted: #6d645b;
+      --navy: #07182c;
+      --orange: #ff8a1f;
+      --purple: #7a2a82;
+      --rose: #d60644;
+      --char: #222;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Vazirmatn, Tahoma, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(880px 480px at 100% -10%, #f7f2eb, transparent 55%),
+        radial-gradient(640px 420px at 0% 100%, #e5cfc8, transparent 52%),
+        var(--paper);
+      line-height: 1.75;
+      font-size: 15px;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .shell {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 22px 0 40px;
+    }
+
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 2px 4px 18px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+    }
+    .brand i {
+      width: 34px;
+      height: 34px;
+      border-radius: 11px;
+      background: var(--ink);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+      padding: 8px;
+    }
+    .brand i span { background: #f3ece4; border-radius: 2px; }
+    .brand i span:nth-child(2) { background: var(--orange); }
+    .top-note { margin: 0; color: var(--muted); font-size: 13px; }
+
+    .hero {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 40px;
+      padding: 8px 4px 22px;
+    }
+    .kicker {
+      margin: 0 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .kicker b {
+      background: #fff;
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 1px 9px;
+      font-weight: 800;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(40px, 5vw, 62px);
+      font-weight: 900;
+      line-height: 1.28;
+    }
+    .lead {
+      margin: 0;
+      max-width: 34ch;
+      color: var(--muted);
+      font-size: 15px;
+      padding-bottom: 6px;
+    }
+
+    .board {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .panel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 28px;
+      padding: 26px 24px 22px;
+      min-height: 460px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 20px 50px rgba(60, 40, 20, .08);
+    }
+    .panel > * { position: relative; z-index: 1; }
+
+    .build {
+      background:
+        radial-gradient(380px 200px at 8% 112%, rgba(255, 138, 31, .5), transparent 62%),
+        linear-gradient(165deg, #0c2744 0%, var(--navy) 58%, #04101c 100%);
+      color: #fff;
+    }
+    .build::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: radial-gradient(ellipse at 75% 0%, #000 8%, transparent 70%);
+    }
+    .sleep {
+      background:
+        radial-gradient(340px 180px at 100% 0%, rgba(122, 42, 130, .14), transparent 62%),
+        radial-gradient(280px 180px at 0% 100%, rgba(214, 6, 68, .1), transparent 58%),
+        linear-gradient(180deg, #fff 0%, #fbf7f2 100%);
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 12.5px;
+      font-weight: 700;
+    }
+    .build .eyebrow { color: rgba(255,255,255,.74); }
+    .sleep .eyebrow { color: var(--muted); }
+    .pill {
+      border-radius: 999px;
+      padding: 3px 10px;
+      background: rgba(255,255,255,.1);
+    }
+    .sleep .pill { background: #f3e7f4; color: var(--purple); }
+
+    h2 {
+      margin: 22px 0 0;
+      font-size: 36px;
+      font-weight: 900;
+      line-height: 1.3;
+    }
+    .slogan { margin: 2px 0 0; font-size: 14.5px; font-weight: 700; }
+    .build .slogan { color: #ffd7ad; }
+    .sleep .slogan { color: var(--purple); }
+    .desc {
+      margin: 10px 0 0;
+      font-size: 14px;
+      max-width: 36ch;
+    }
+    .build .desc { color: rgba(255,255,255,.78); }
+    .sleep .desc { color: #5c564f; }
+
+    .choices, .themes {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 28px;
+    }
+    .choices a, .themes a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 58px;
+      padding: 10px 14px;
+      border-radius: 16px;
+      transition: .2s transform, .2s background, .2s color, .2s border-color, .2s box-shadow;
+    }
+    .choices a {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      color: #fff;
+    }
+    .choices a b, .themes a b { font-size: 15px; font-weight: 800; }
+    .choices a small, .themes a small { font-size: 12.5px; font-weight: 500; }
+    .choices a small { color: rgba(255,255,255,.66); }
+    .choices a:hover {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: #2a1400;
+      transform: translateY(-2px);
+    }
+    .choices a:hover small { color: rgba(42, 20, 0, .7); }
+
+    .themes a {
+      background: rgba(255,255,255,.86);
+      border: 1px solid rgba(26, 22, 18, .06);
+    }
+    .themes a small { color: var(--muted); }
+    .themes a span { display: flex; flex-direction: column; line-height: 1.45; }
+    .swatch { width: 28px; height: 6px; border-radius: 99px; flex: none; }
+    .swatch.sargol { background: var(--purple); }
+    .swatch.wood { background: var(--rose); }
+    .swatch.majora { background: var(--char); }
+    .themes a:hover { transform: translateY(-2px); background: #fff; }
+    .themes a.sargol:hover { box-shadow: 0 10px 24px rgba(122, 42, 130, .14); }
+    .themes a.wood:hover { box-shadow: 0 10px 24px rgba(214, 6, 68, .14); }
+    .themes a.majora:hover { box-shadow: 0 10px 24px rgba(0, 0, 0, .1); }
+
+    .go {
+      align-self: flex-start;
+      margin-top: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 800;
+      font-size: 13.5px;
+    }
+    .build .go { color: #ffd7ad; }
+    .sleep .go { color: var(--purple); }
+    .go svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .go:hover { gap: 12px; }
+
+    .pages {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-top: 18px;
+      padding: 4px;
+    }
+    .pages p {
+      margin: 0 4px 0 0;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--muted);
+    }
+    .pages a {
+      background: rgba(255,255,255,.7);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: .2s background, .2s color, .2s transform;
+    }
+    .pages a:hover {
+      background: var(--navy);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--orange);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 860px) {
+      .hero { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .lead { max-width: none; padding-bottom: 0; }
+      .board { grid-template-columns: 1fr; }
+      .panel { min-height: 0; }
+    }
+    @media (max-width: 560px) {
+      .shell { width: min(100% - 24px, 1120px); }
+      .top-note { display: none; }
+      h1 { font-size: 36px; }
+      .panel { border-radius: 22px; padding: 22px 16px 18px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .choices a, .themes a, .pages a, .go { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="top">
+      <a class="brand" href="./" aria-label="قالب‌های مشتریان">
+        <i aria-hidden="true"><span></span><span></span><span></span><span></span></i>
+        قالب‌ها
+      </a>
+      <p class="top-note">طرح اولیه وبسایت مشتریان</p>
+    </header>
+
+    <section class="hero">
+      <div>
+        <p class="kicker"><b>۰۲</b> مشتری، چند طرح صفحهٔ اصلی</p>
+        <h1>دو فروشگاه،<br>دو هویت جدا.</h1>
+      </div>
+      <p class="lead">هر پوشه یک برند است. طرح صفحهٔ اصلی را باز کن، یا برای عبداللهی از مسیر خرید داخل فروشگاه بگذر.</p>
+    </section>
+
+    <div class="board">
+      <article class="panel build">
+        <div class="eyebrow">
+          <span>۰۱</span>
+          <span class="pill">مصالح ساختمانی</span>
+        </div>
+        <h2>عبداللهی</h2>
+        <p class="slogan">باهات می‌سازه</p>
+        <p class="desc">کاشی و سرامیک، شیرآلات، سرویس بهداشتی و تاسیسات. سه چهره برای صفحهٔ اصلی.</p>
+        <div class="choices">
+          <a href="shop-building/index.html">
+            <b>طرح اول</b>
+            <small>شیشه و گرادیان</small>
+          </a>
+          <a href="shop-building/index2.html">
+            <b>طرح دوم</b>
+            <small>خط ضخیم</small>
+          </a>
+          <a href="shop-building/index3.html">
+            <b>طرح فلت</b>
+            <small>هم‌خوان با فروشگاه</small>
+          </a>
+        </div>
+        <a class="go" href="shop-building/shop.html">
+          ورود به فروشگاه
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+        </a>
+      </article>
+
+      <article class="panel sleep">
+        <div class="eyebrow">
+          <span>۰۲</span>
+          <span class="pill">کالای خواب</span>
+        </div>
+        <h2>هاشمزاده</h2>
+        <p class="slogan">تشک، بالش، روتختی</p>
+        <p class="desc">سه قالب آماده. هر کدام رنگ و چیدمان خودش را دارد.</p>
+        <div class="themes">
+          <a class="sargol" href="shop-bedding/sargol/index.html">
+            <span><b>سرگل</b><small>بنفش</small></span>
+            <i class="swatch sargol" aria-hidden="true"></i>
+          </a>
+          <a class="wood" href="shop-bedding/wood/index.html">
+            <span><b>وود</b><small>سرخ</small></span>
+            <i class="swatch wood" aria-hidden="true"></i>
+          </a>
+          <a class="majora" href="shop-bedding/majora/index.html">
+            <span><b>ماژورا</b><small>ذغالی و بژ</small></span>
+            <i class="swatch majora" aria-hidden="true"></i>
+          </a>
+        </div>
+        <a class="go" href="shop-bedding/index.html">
+          هر سه قالب در یک صفحه
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+        </a>
+      </article>
+    </div>
+
+    <nav class="pages" aria-label="صفحه‌های داخلی عبداللهی">
+      <p>صفحه‌های عبداللهی</p>
+      <a href="shop-building/shop.html">فروشگاه</a>
+      <a href="shop-building/product.html?id=1">محصول</a>
+      <a href="shop-building/cart.html">سبد</a>
+      <a href="shop-building/checkout.html">تسویه</a>
+      <a href="shop-building/compare.html">مقایسه</a>
+      <a href="shop-building/account.html">حساب</a>
+      <a href="shop-building/blog.html">مقالات</a>
+      <a href="shop-building/about.html">درباره</a>
+      <a href="shop-building/contact.html">تماس</a>
+    </nav>
+  </div>
+</body>
+</html>
